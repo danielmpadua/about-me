@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { Container } from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
+
+import { Header, Menu } from "./components";
+import { CustomTheme } from "./styles";
+
+const App = () => {
+	const [selectedOption, setSelectedOption] = useState<string>("");
+
+	const changeOption = (option: string) => {
+		setSelectedOption(option);
+	};
+
+	return (
+		<ThemeProvider theme={CustomTheme()}>
+			<Header selectedOption={selectedOption} />
+			<Menu selectedOption={selectedOption} changeOption={changeOption} />
+		</ThemeProvider>
+	);
+};
 
 export default App;

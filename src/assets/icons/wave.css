@@ -1,0 +1,4 @@
+.wave {
+	opacity: 0;
+	animation: hideshow 10s 1.5s ease infinite;
+}

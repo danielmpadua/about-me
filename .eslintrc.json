@@ -1,0 +1,100 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"extends": ["prettier", "airbnb-typescript", "airbnb/hooks", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"project": "./tsconfig.json",
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"plugins": ["react", "react-hooks", "import", "@typescript-eslint", "eslint-plugin-import-helpers", "prettier"],
+	"ignorePatterns": ["*.test.js", "*.test.tsx", "src/index.d.ts", "src/stories/*.tsx", "src/stories/*.ts"],
+	"rules": {
+		"prettier/prettier": "error",
+		"react/jsx-filename-extension": [
+			"error",
+			{
+				"extensions": [".tsx"]
+			}
+		],
+		"import/prefer-default-export": "off",
+		"no-promise-executor-return": "off",
+		"react/react-in-jsx-scope": "off",
+		"no-console": "off",
+		"react/jsx-props-no-spreading": "off",
+		"import/no-cycle": "off",
+		"react/function-component-definition": [
+			2,
+			{
+				"namedComponents": "arrow-function",
+				"unnamedComponents": "arrow-function"
+			}
+		],
+		"import/extensions": [
+			"error",
+			"ignorePackages",
+			{
+				"js": "never",
+				"jsx": "never",
+				"ts": "never",
+				"tsx": "never"
+			}
+		],
+		"import-helpers/order-imports": [
+			"warn",
+			{
+				"newlinesBetween": "always", // new line between groups
+				"groups": ["/^react/", "module", "/^@mui/material/", "/^@/", "/@emotion/styled/", "/~/", ["parent", "sibling", "index"]],
+				"alphabetize": {
+					"order": "asc",
+					"ignoreCase": true
+				}
+			}
+		]
+	},
+	"overrides": [
+		{
+			"files": ["*.ts", "*.tsx"]
+		}
+	],
+	"settings": {
+		"react": {
+			"version": "detect"
+		},
+		"import/parsers": {
+			"@typescript-eslint/parser": [".ts", ".tsx"]
+		},
+		"import/resolver": {
+			"typescript": {},
+			"node": {
+				"paths": ["src"],
+				"extensions": [".js", ".jsx", ".json", ".ts", ".tsx"]
+			},
+			"alias": {
+				"map": [
+					["~/app", "./src/"],
+					["~/navigation", "./src/navigation/"],
+					["~/components", "./src/components/"],
+					["~/pages", "./src/pages/"],
+					["~/redux", "./src/redux/"],
+					["~/services", "./src/services/"],
+					["~/styles", "./src/styles/"],
+					["~/utils", "./src/utils/"],
+					["~/assets", "./src/assets/"],
+					["~/fonts", "./src/assets/fonts/*"],
+					["~/dto", "./src/redux/dto/"],
+					["~/enums", "./src/redux/enums/"],
+					["~/store", "./src/redux/store/"],
+					["~/hooks", "./src/hooks/"]
+				],
+				"extensions": [".ts", ".tsx", ".js", ".jsx", ".json"]
+			}
+		}
+	}
+}

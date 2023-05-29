@@ -24,6 +24,7 @@ export const Menu = ({ selectedOption, changeOption }: TMenu) => {
 			<Box
 				sx={{
 					background: colors(selectedOption).backgroundMenu,
+					backgroundImage: `linear-gradient(to left, ${colors(selectedOption).backgroundMenu} , rgba(88,88,88,0.24413515406162467))`,
 					padding: pxToRem(32),
 					display: "flex",
 					alignItems: "center",

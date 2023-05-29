@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { SocialIcon } from "react-social-icons";
 
 import { Box, Fade, Grid, Slide, Typography } from "@mui/material";
@@ -14,6 +14,11 @@ type THeader = {
 export const Header = ({ selectedOption }: THeader) => {
 	const width = useWidth();
 	const containerRef = useRef(null);
+	const [showAnimation, setShowAnimation] = useState(true);
+
+	const removeAnimation = () => {
+		setShowAnimation(false);
+	};
 
 	const imageSize = () => {
 		if (width === "xs") return pxToRem(120);
@@ -22,8 +27,8 @@ export const Header = ({ selectedOption }: THeader) => {
 	};
 
 	const iconSize = () => {
-		if (width === "xs") return pxToRem(14);
-		if (width === "sm" || width === "md") return pxToRem(20);
+		if (width === "xs") return pxToRem(20);
+		if (width === "sm" || width === "md") return pxToRem(24);
 		return pxToRem(28);
 	};
 
@@ -31,14 +36,16 @@ export const Header = ({ selectedOption }: THeader) => {
 		<Box
 			ref={containerRef}
 			sx={{
-				padding: pxToRem(32),
+				padding: pxToRem(width === "xs" ? 16 : 32),
 				display: "flex",
 				alignItems: "center",
+				flexDirection: "column",
 				justifyContent: "center",
 				overflow: "hidden",
+				gap: pxToRem(16),
 			}}
 		>
-			<Grid container spacing={4}>
+			<Grid container spacing={width === "xs" ? 2 : 4}>
 				<Grid
 					item
 					xs={4}
@@ -71,7 +78,24 @@ export const Header = ({ selectedOption }: THeader) => {
 						</Typography>
 					</Slide>
 
-					<Slide in direction="left" timeout={2000}>
+					{showAnimation && (
+						<Slide in direction="left" timeout={2000} onEntered={removeAnimation}>
+							<Typography
+								variant="merriweather-heading2"
+								color={colors(selectedOption).primary}
+								sx={{
+									webkitTransition: "color 1s ease-out",
+									transition: "color 1s ease-out",
+									oTransition: "color 1s ease-out",
+									mozTransition: "color 1s ease-out",
+								}}
+							>
+								Daniel Pádua
+							</Typography>
+						</Slide>
+					)}
+
+					{!showAnimation && (
 						<Typography
 							variant="merriweather-heading2"
 							color={colors(selectedOption).primary}
@@ -84,9 +108,25 @@ export const Header = ({ selectedOption }: THeader) => {
 						>
 							Daniel Pádua
 						</Typography>
-					</Slide>
+					)}
 
-					<Fade in timeout={3000}>
+					{showAnimation && (
+						<Fade in timeout={3000}>
+							<Box
+								sx={{
+									maxWidth: pxToRem(200),
+									border: `${pxToRem(1)} solid ${colors(selectedOption).primary}`,
+									borderRadius: pxToRem(8),
+									webkitTransition: "border 1s ease-out",
+									transition: "border 1s ease-out",
+									oTransition: "border 1s ease-out",
+									mozTransition: "border 1s ease-out",
+								}}
+							/>
+						</Fade>
+					)}
+
+					{!showAnimation && (
 						<Box
 							sx={{
 								maxWidth: pxToRem(200),
@@ -98,11 +138,11 @@ export const Header = ({ selectedOption }: THeader) => {
 								mozTransition: "border 1s ease-out",
 							}}
 						/>
-					</Fade>
+					)}
 
 					<Slide in direction="left" timeout={2000}>
 						<Typography
-							variant="merriweather-footnote-regular"
+							variant={width === "xs" ? "merriweather-body-regular" : "merriweather-footnote-regular"}
 							color="#808ca4"
 							sx={{
 								maxWidth: width === "xs" ? "90%" : pxToRem(300),
@@ -113,69 +153,134 @@ export const Header = ({ selectedOption }: THeader) => {
 						</Typography>
 					</Slide>
 
-					<Slide direction="up" in container={containerRef.current} timeout={2000}>
-						<Box
-							sx={{
-								display: "flex",
-								alignItems: "center",
-								maxWidth: pxToRem(350),
-								gap: pxToRem(16),
-							}}
-						>
-							<SocialIcon url="https://www.instagram.com/danielmpadua" bgColor={colors().primary} style={{ width: iconSize(), height: iconSize() }} />
+					{width !== "xs" && (
+						<Slide direction="up" in container={containerRef.current} timeout={2000}>
+							<Box
+								sx={{
+									display: "flex",
+									alignItems: "center",
+									maxWidth: pxToRem(350),
+									gap: pxToRem(16),
+								}}
+							>
+								<SocialIcon
+									url="https://www.instagram.com/danielmpadua"
+									bgColor={colors().primary}
+									style={{ width: iconSize(), height: iconSize() }}
+								/>
 
-							<SocialIcon
-								url="https://www.facebook.com/daniel.marianopadua"
-								bgColor={colors().primary}
-								style={{ width: iconSize(), height: iconSize() }}
-							/>
+								<SocialIcon
+									url="https://www.facebook.com/daniel.marianopadua"
+									bgColor={colors().primary}
+									style={{ width: iconSize(), height: iconSize() }}
+								/>
 
-							<SocialIcon
-								url="https://www.linkedin.com/in/danielmpadua"
-								bgColor={colors("CODE").primary}
-								style={{ width: iconSize(), height: iconSize() }}
-							/>
+								<SocialIcon
+									url="https://www.linkedin.com/in/danielmpadua"
+									bgColor={colors("CODE").primary}
+									style={{ width: iconSize(), height: iconSize() }}
+								/>
 
-							<SocialIcon url="https://github.com/danielmpadua" bgColor={colors("CODE").primary} style={{ width: iconSize(), height: iconSize() }} />
-						</Box>
-					</Slide>
+								<SocialIcon
+									url="https://github.com/danielmpadua"
+									bgColor={colors("CODE").primary}
+									style={{ width: iconSize(), height: iconSize() }}
+								/>
+							</Box>
+						</Slide>
+					)}
 
-					<Slide direction="up" in container={containerRef.current} timeout={2000}>
-						<Box
-							sx={{
-								display: "flex",
-								alignItems: "center",
-								maxWidth: pxToRem(350),
-								gap: pxToRem(16),
-							}}
-						>
-							<SocialIcon
-								url="https://www.instagram.com/danielpaduamusic"
-								bgColor={colors("MUSIC").primary}
-								style={{ width: iconSize(), height: iconSize() }}
-							/>
+					{width !== "xs" && (
+						<Slide direction="up" in container={containerRef.current} timeout={2000}>
+							<Box
+								sx={{
+									display: "flex",
+									alignItems: "center",
+									maxWidth: pxToRem(350),
+									gap: pxToRem(16),
+								}}
+							>
+								<SocialIcon
+									url="https://www.instagram.com/danielpaduamusic"
+									bgColor={colors("MUSIC").primary}
+									style={{ width: iconSize(), height: iconSize() }}
+								/>
 
-							<SocialIcon
-								url="https://www.tiktok.com/@danielpaduamusic"
-								bgColor={colors("MUSIC").primary}
-								style={{ width: iconSize(), height: iconSize() }}
-							/>
+								<SocialIcon
+									url="https://www.tiktok.com/@danielpaduamusic"
+									bgColor={colors("MUSIC").primary}
+									style={{ width: iconSize(), height: iconSize() }}
+								/>
 
-							<SocialIcon
-								url="https://www.youtube.com/@danielpaduamusic/"
-								bgColor={colors("MUSIC").primary}
-								style={{ width: iconSize(), height: iconSize() }}
-							/>
+								<SocialIcon
+									url="https://www.youtube.com/@danielpaduamusic/"
+									bgColor={colors("MUSIC").primary}
+									style={{ width: iconSize(), height: iconSize() }}
+								/>
 
-							<SocialIcon
-								url="mailto:danielpaduaofficial@gmail.com"
-								bgColor={colors("MUSIC").primary}
-								style={{ width: iconSize(), height: iconSize() }}
-							/>
-						</Box>
-					</Slide>
+								<SocialIcon
+									url="mailto:danielpaduaofficial@gmail.com"
+									bgColor={colors("MUSIC").primary}
+									style={{ width: iconSize(), height: iconSize() }}
+								/>
+							</Box>
+						</Slide>
+					)}
 				</Grid>
 			</Grid>
+
+			{width === "xs" && (
+				<Slide direction="up" in container={containerRef.current} timeout={2000}>
+					<Box
+						sx={{
+							display: "flex",
+							alignItems: "center",
+							maxWidth: pxToRem(350),
+							gap: pxToRem(16),
+						}}
+					>
+						<SocialIcon url="https://www.instagram.com/danielmpadua" bgColor={colors().primary} style={{ width: iconSize(), height: iconSize() }} />
+
+						<SocialIcon
+							url="https://www.facebook.com/daniel.marianopadua"
+							bgColor={colors().primary}
+							style={{ width: iconSize(), height: iconSize() }}
+						/>
+
+						<SocialIcon
+							url="https://www.linkedin.com/in/danielmpadua"
+							bgColor={colors("CODE").primary}
+							style={{ width: iconSize(), height: iconSize() }}
+						/>
+
+						<SocialIcon url="https://github.com/danielmpadua" bgColor={colors("CODE").primary} style={{ width: iconSize(), height: iconSize() }} />
+
+						<SocialIcon
+							url="https://www.instagram.com/danielpaduamusic"
+							bgColor={colors("MUSIC").primary}
+							style={{ width: iconSize(), height: iconSize() }}
+						/>
+
+						<SocialIcon
+							url="https://www.tiktok.com/@danielpaduamusic"
+							bgColor={colors("MUSIC").primary}
+							style={{ width: iconSize(), height: iconSize() }}
+						/>
+
+						<SocialIcon
+							url="https://www.youtube.com/@danielpaduamusic/"
+							bgColor={colors("MUSIC").primary}
+							style={{ width: iconSize(), height: iconSize() }}
+						/>
+
+						<SocialIcon
+							url="mailto:danielpaduaofficial@gmail.com"
+							bgColor={colors("MUSIC").primary}
+							style={{ width: iconSize(), height: iconSize() }}
+						/>
+					</Box>
+				</Slide>
+			)}
 		</Box>
 	);
 };

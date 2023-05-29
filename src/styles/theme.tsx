@@ -2,7 +2,7 @@ import { createTheme } from "@mui/material/styles";
 
 import "@fontsource-variable/oswald";
 import "@fontsource-variable/merriweather-sans";
-import { pxToRem, useWidth } from "../utils";
+import { fontResize, useWidth } from "../utils";
 
 declare module "@mui/material/styles" {
 	interface TypographyVariants {
@@ -91,12 +91,6 @@ declare module "@mui/material/Typography" {
 export const CustomTheme = () => {
 	const width = useWidth();
 
-	const fontResize = (pxValue: number) => {
-		if (width === "xs") return pxToRem(pxValue / 1.6);
-		if (width === "sm") return pxToRem(pxValue / 1.2);
-		return pxToRem(pxValue);
-	};
-
 	return createTheme({
 		typography: {
 			fontFamily: ["Oswald Variable", "Merriweather Sans Variable", "sans-serif"].join(","),
@@ -104,156 +98,156 @@ export const CustomTheme = () => {
 				fontFamily: "Oswald Variable",
 				fontStyle: "normal",
 				fontWeight: 500,
-				fontSize: fontResize(14),
-				lineHeight: fontResize(17),
+				fontSize: fontResize(14, width),
+				lineHeight: fontResize(17, width),
 			},
 			"oswald-caption-bold": {
 				fontFamily: "Oswald Variable",
 				fontStyle: "normal",
 				fontWeight: 600,
-				fontSize: fontResize(14),
-				lineHeight: fontResize(17),
+				fontSize: fontResize(14, width),
+				lineHeight: fontResize(17, width),
 			},
 			"oswald-body-bold": {
 				fontFamily: "Oswald Variable",
 				fontStyle: "normal",
 				fontWeight: 600,
-				fontSize: fontResize(16),
-				lineHeight: fontResize(19.36),
+				fontSize: fontResize(16, width),
+				lineHeight: fontResize(19.36, width),
 			},
 			"oswald-body-regular": {
 				fontFamily: "Oswald Variable",
 				fontStyle: "normal",
 				fontWeight: 500,
-				fontSize: fontResize(16),
-				lineHeight: fontResize(19.36),
+				fontSize: fontResize(16, width),
+				lineHeight: fontResize(19.36, width),
 			},
 			"oswald-heading2": {
 				fontFamily: "Oswald Variable",
 				fontStyle: "normal",
 				fontWeight: 700,
-				fontSize: fontResize(32),
-				lineHeight: fontResize(39),
+				fontSize: fontResize(32, width),
+				lineHeight: fontResize(39, width),
 			},
 			"oswald-heading3": {
 				fontFamily: "Oswald Variable",
 				fontStyle: "normal",
 				fontWeight: 700,
-				fontSize: fontResize(28),
-				lineHeight: fontResize(34),
+				fontSize: fontResize(28, width),
+				lineHeight: fontResize(34, width),
 			},
 			"oswald-heading4": {
 				fontFamily: "Oswald Variable",
 				fontStyle: "normal",
 				fontWeight: 700,
-				fontSize: fontResize(24),
-				lineHeight: fontResize(29),
+				fontSize: fontResize(24, width),
+				lineHeight: fontResize(29, width),
 			},
 			"oswald-heading5": {
 				fontFamily: "Oswald Variable",
 				fontStyle: "normal",
 				fontWeight: 700,
-				fontSize: fontResize(21),
-				lineHeight: fontResize(25),
+				fontSize: fontResize(21, width),
+				lineHeight: fontResize(25, width),
 			},
 			"oswald-heading6": {
 				fontFamily: "Oswald Variable",
 				fontStyle: "normal",
 				fontWeight: 700,
-				fontSize: fontResize(19),
-				lineHeight: fontResize(23),
+				fontSize: fontResize(19, width),
+				lineHeight: fontResize(23, width),
 			},
 			"oswald-footnote-regular": {
 				fontFamily: "Oswald Variable",
 				fontStyle: "normal",
 				fontWeight: 500,
-				fontSize: fontResize(12),
-				lineHeight: fontResize(15),
+				fontSize: fontResize(12, width),
+				lineHeight: fontResize(15, width),
 			},
 			"oswald-footnote-bold": {
 				fontFamily: "Oswald Variable",
 				fontStyle: "normal",
 				fontWeight: 600,
-				fontSize: fontResize(12),
-				lineHeight: fontResize(15),
+				fontSize: fontResize(12, width),
+				lineHeight: fontResize(15, width),
 			},
 
 			"merriweather-caption-medium": {
 				fontFamily: "Merriweather Sans Variable",
 				fontStyle: "normal",
 				fontWeight: 500,
-				fontSize: fontResize(14),
-				lineHeight: fontResize(17),
+				fontSize: fontResize(14, width),
+				lineHeight: fontResize(17, width),
 			},
 			"merriweather-caption-bold": {
 				fontFamily: "Merriweather Sans Variable",
 				fontStyle: "normal",
 				fontWeight: 600,
-				fontSize: fontResize(14),
-				lineHeight: fontResize(17),
+				fontSize: fontResize(14, width),
+				lineHeight: fontResize(17, width),
 			},
 			"merriweather-body-bold": {
 				fontFamily: "Merriweather Sans Variable",
 				fontStyle: "normal",
 				fontWeight: 600,
-				fontSize: fontResize(16),
-				lineHeight: fontResize(19.36),
+				fontSize: fontResize(16, width),
+				lineHeight: fontResize(19.36, width),
 			},
 			"merriweather-body-regular": {
 				fontFamily: "Merriweather Sans Variable",
 				fontStyle: "normal",
 				fontWeight: 500,
-				fontSize: fontResize(16),
-				lineHeight: fontResize(19.36),
+				fontSize: fontResize(16, width),
+				lineHeight: fontResize(19.36, width),
 			},
 			"merriweather-heading2": {
 				fontFamily: "Merriweather Sans Variable",
 				fontStyle: "normal",
 				fontWeight: 700,
-				fontSize: fontResize(32),
-				lineHeight: fontResize(39),
+				fontSize: fontResize(32, width),
+				lineHeight: fontResize(39, width),
 			},
 			"merriweather-heading3": {
 				fontFamily: "Merriweather Sans Variable",
 				fontStyle: "normal",
 				fontWeight: 700,
-				fontSize: fontResize(28),
-				lineHeight: fontResize(34),
+				fontSize: fontResize(28, width),
+				lineHeight: fontResize(34, width),
 			},
 			"merriweather-heading4": {
 				fontFamily: "Merriweather Sans Variable",
 				fontStyle: "normal",
 				fontWeight: 700,
-				fontSize: fontResize(24),
-				lineHeight: fontResize(29),
+				fontSize: fontResize(24, width),
+				lineHeight: fontResize(29, width),
 			},
 			"merriweather-heading5": {
 				fontFamily: "Merriweather Sans Variable",
 				fontStyle: "normal",
 				fontWeight: 700,
-				fontSize: fontResize(21),
-				lineHeight: fontResize(25),
+				fontSize: fontResize(21, width),
+				lineHeight: fontResize(25, width),
 			},
 			"merriweather-heading6": {
 				fontFamily: "Merriweather Sans Variable",
 				fontStyle: "normal",
 				fontWeight: 700,
-				fontSize: fontResize(19),
-				lineHeight: fontResize(23),
+				fontSize: fontResize(19, width),
+				lineHeight: fontResize(23, width),
 			},
 			"merriweather-footnote-regular": {
 				fontFamily: "Merriweather Sans Variable",
 				fontStyle: "normal",
 				fontWeight: 500,
-				fontSize: fontResize(12),
-				lineHeight: fontResize(15),
+				fontSize: fontResize(12, width),
+				lineHeight: fontResize(15, width),
 			},
 			"merriweather-footnote-bold": {
 				fontFamily: "Merriweather Sans Variable",
 				fontStyle: "normal",
 				fontWeight: 600,
-				fontSize: fontResize(12),
-				lineHeight: fontResize(15),
+				fontSize: fontResize(12, width),
+				lineHeight: fontResize(15, width),
 			},
 		},
 	});

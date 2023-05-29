@@ -1,6 +1,8 @@
 import { Breakpoint, Theme, useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
+import { pxToRem } from "./format";
+
 type BreakpointOrNull = Breakpoint | null;
 
 export function useWidth() {
@@ -14,3 +16,9 @@ export function useWidth() {
 		}, null) || "xs"
 	);
 }
+
+export const fontResize = (pxValue: number, width: "xs" | "sm" | "md" | "lg" | "xl") => {
+	if (width === "xs") return pxToRem(pxValue / 1.6);
+	if (width === "sm") return pxToRem(pxValue / 1.2);
+	return pxToRem(pxValue);
+};

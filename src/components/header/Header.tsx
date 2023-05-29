@@ -1,6 +1,7 @@
+import { useRef } from "react";
 import { SocialIcon } from "react-social-icons";
 
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Fade, Grid, Slide, Typography } from "@mui/material";
 
 import Image from "../../assets/images/danielbw.png";
 import { colors } from "../../styles";
@@ -12,6 +13,7 @@ type THeader = {
 
 export const Header = ({ selectedOption }: THeader) => {
 	const width = useWidth();
+	const containerRef = useRef(null);
 
 	const imageSize = () => {
 		if (width === "xs") return pxToRem(120);
@@ -27,11 +29,13 @@ export const Header = ({ selectedOption }: THeader) => {
 
 	return (
 		<Box
+			ref={containerRef}
 			sx={{
 				padding: pxToRem(32),
 				display: "flex",
 				alignItems: "center",
 				justifyContent: "center",
+				overflow: "hidden",
 			}}
 		>
 			<Grid container spacing={4}>
@@ -45,7 +49,9 @@ export const Header = ({ selectedOption }: THeader) => {
 						justifyContent: "end",
 					}}
 				>
-					<img src={Image} alt="Daniel Padua" style={{ width: imageSize() }} />
+					<Fade in timeout={3000}>
+						<img src={Image} alt="Daniel Padua" style={{ width: imageSize() }} />
+					</Fade>
 				</Grid>
 
 				<Grid
@@ -59,103 +65,115 @@ export const Header = ({ selectedOption }: THeader) => {
 						gap: pxToRem(8),
 					}}
 				>
-					<Typography variant="merriweather-heading2" color="#fff">
-						Olá, me chamo
-					</Typography>
+					<Slide in direction="down" timeout={2000}>
+						<Typography variant="merriweather-heading2" color="#fff">
+							Olá, me chamo
+						</Typography>
+					</Slide>
 
-					<Typography
-						variant="merriweather-heading2"
-						color={colors(selectedOption).primary}
-						sx={{
-							webkitTransition: "color 1s ease-out",
-							transition: "color 1s ease-out",
-							oTransition: "color 1s ease-out",
-							mozTransition: "color 1s ease-out",
-						}}
-					>
-						Daniel Pádua
-					</Typography>
+					<Slide in direction="left" timeout={2000}>
+						<Typography
+							variant="merriweather-heading2"
+							color={colors(selectedOption).primary}
+							sx={{
+								webkitTransition: "color 1s ease-out",
+								transition: "color 1s ease-out",
+								oTransition: "color 1s ease-out",
+								mozTransition: "color 1s ease-out",
+							}}
+						>
+							Daniel Pádua
+						</Typography>
+					</Slide>
 
-					<Box
-						sx={{
-							maxWidth: pxToRem(200),
-							border: `${pxToRem(1)} solid ${colors(selectedOption).primary}`,
-							borderRadius: pxToRem(8),
-							webkitTransition: "border 1s ease-out",
-							transition: "border 1s ease-out",
-							oTransition: "border 1s ease-out",
-							mozTransition: "border 1s ease-out",
-						}}
-					/>
-
-					<Typography
-						variant="merriweather-footnote-regular"
-						color="#808ca4"
-						sx={{
-							maxWidth: width === "xs" ? "90%" : pxToRem(300),
-							my: pxToRem(8),
-						}}
-					>
-						Sou um engenheiro de software apaixonado por tecnologia, música e diversos outros assuntos.
-					</Typography>
-
-					<Box
-						sx={{
-							display: "flex",
-							alignItems: "center",
-							maxWidth: pxToRem(350),
-							gap: pxToRem(16),
-						}}
-					>
-						<SocialIcon url="https://www.instagram.com/danielmpadua" bgColor={colors().primary} style={{ width: iconSize(), height: iconSize() }} />
-
-						<SocialIcon
-							url="https://www.facebook.com/daniel.marianopadua"
-							bgColor={colors().primary}
-							style={{ width: iconSize(), height: iconSize() }}
+					<Fade in timeout={3000}>
+						<Box
+							sx={{
+								maxWidth: pxToRem(200),
+								border: `${pxToRem(1)} solid ${colors(selectedOption).primary}`,
+								borderRadius: pxToRem(8),
+								webkitTransition: "border 1s ease-out",
+								transition: "border 1s ease-out",
+								oTransition: "border 1s ease-out",
+								mozTransition: "border 1s ease-out",
+							}}
 						/>
+					</Fade>
 
-						<SocialIcon
-							url="https://www.linkedin.com/in/danielmpadua"
-							bgColor={colors("CODE").primary}
-							style={{ width: iconSize(), height: iconSize() }}
-						/>
+					<Slide in direction="left" timeout={2000}>
+						<Typography
+							variant="merriweather-footnote-regular"
+							color="#808ca4"
+							sx={{
+								maxWidth: width === "xs" ? "90%" : pxToRem(300),
+								my: pxToRem(8),
+							}}
+						>
+							Sou um engenheiro de software apaixonado por tecnologia, música e diversos outros assuntos.
+						</Typography>
+					</Slide>
 
-						<SocialIcon url="https://github.com/danielmpadua" bgColor={colors("CODE").primary} style={{ width: iconSize(), height: iconSize() }} />
-					</Box>
+					<Slide direction="up" in container={containerRef.current} timeout={2000}>
+						<Box
+							sx={{
+								display: "flex",
+								alignItems: "center",
+								maxWidth: pxToRem(350),
+								gap: pxToRem(16),
+							}}
+						>
+							<SocialIcon url="https://www.instagram.com/danielmpadua" bgColor={colors().primary} style={{ width: iconSize(), height: iconSize() }} />
 
-					<Box
-						sx={{
-							display: "flex",
-							alignItems: "center",
-							maxWidth: pxToRem(350),
-							gap: pxToRem(16),
-						}}
-					>
-						<SocialIcon
-							url="https://www.instagram.com/danielpaduamusic"
-							bgColor={colors("MUSIC").primary}
-							style={{ width: iconSize(), height: iconSize() }}
-						/>
+							<SocialIcon
+								url="https://www.facebook.com/daniel.marianopadua"
+								bgColor={colors().primary}
+								style={{ width: iconSize(), height: iconSize() }}
+							/>
 
-						<SocialIcon
-							url="https://www.tiktok.com/@danielpaduamusic"
-							bgColor={colors("MUSIC").primary}
-							style={{ width: iconSize(), height: iconSize() }}
-						/>
+							<SocialIcon
+								url="https://www.linkedin.com/in/danielmpadua"
+								bgColor={colors("CODE").primary}
+								style={{ width: iconSize(), height: iconSize() }}
+							/>
 
-						<SocialIcon
-							url="https://www.youtube.com/@danielpaduamusic/"
-							bgColor={colors("MUSIC").primary}
-							style={{ width: iconSize(), height: iconSize() }}
-						/>
+							<SocialIcon url="https://github.com/danielmpadua" bgColor={colors("CODE").primary} style={{ width: iconSize(), height: iconSize() }} />
+						</Box>
+					</Slide>
 
-						<SocialIcon
-							url="mailto:danielpaduaofficial@gmail.com"
-							bgColor={colors("MUSIC").primary}
-							style={{ width: iconSize(), height: iconSize() }}
-						/>
-					</Box>
+					<Slide direction="up" in container={containerRef.current} timeout={2000}>
+						<Box
+							sx={{
+								display: "flex",
+								alignItems: "center",
+								maxWidth: pxToRem(350),
+								gap: pxToRem(16),
+							}}
+						>
+							<SocialIcon
+								url="https://www.instagram.com/danielpaduamusic"
+								bgColor={colors("MUSIC").primary}
+								style={{ width: iconSize(), height: iconSize() }}
+							/>
+
+							<SocialIcon
+								url="https://www.tiktok.com/@danielpaduamusic"
+								bgColor={colors("MUSIC").primary}
+								style={{ width: iconSize(), height: iconSize() }}
+							/>
+
+							<SocialIcon
+								url="https://www.youtube.com/@danielpaduamusic/"
+								bgColor={colors("MUSIC").primary}
+								style={{ width: iconSize(), height: iconSize() }}
+							/>
+
+							<SocialIcon
+								url="mailto:danielpaduaofficial@gmail.com"
+								bgColor={colors("MUSIC").primary}
+								style={{ width: iconSize(), height: iconSize() }}
+							/>
+						</Box>
+					</Slide>
 				</Grid>
 			</Grid>
 		</Box>

@@ -15,13 +15,16 @@ export const CustomButton = ({ isSelected, onClick, text, type, icon }: TButton)
 	const width = useWidth();
 
 	const buttonSize = () => {
-		if (width === "xs") return pxToRem(50);
-		if (width === "sm" || width === "md") return pxToRem(70);
-		return pxToRem(80);
+		if (width === "xs") return pxToRem(30);
+		if (width === "sm" || width === "md") return pxToRem(50);
+		return pxToRem(60);
 	};
 
 	return (
 		<Box
+			onClick={() => {
+				if (!isSelected(type)) onClick(type);
+			}}
 			sx={{
 				display: "flex",
 				flexDirection: "column",
@@ -36,7 +39,7 @@ export const CustomButton = ({ isSelected, onClick, text, type, icon }: TButton)
 					borderRadius: pxToRem(200),
 					width: buttonSize(),
 					height: buttonSize(),
-					padding: pxToRem(8),
+					padding: pxToRem(4),
 					webkitTransition: "border 500ms ease-out",
 					transition: "border 500ms ease-out",
 					oTransition: "border 500ms ease-out",
@@ -45,18 +48,16 @@ export const CustomButton = ({ isSelected, onClick, text, type, icon }: TButton)
 			>
 				<IconButton
 					size="large"
-					onClick={() => {
-						if (!isSelected(type)) onClick(type);
-					}}
 					sx={{
 						background: isSelected(type) ? colors(type).primary : "#000",
 						color: isSelected(type) ? "#000" : colors(type).primary,
 						width: "100%",
 						height: "100%",
-						webkitTransition: "color 250ms ease-out, background 500ms ease-out",
+						padding: pxToRem(4),
+						WebkitTransition: "color 250ms ease-out, background 500ms ease-out",
 						transition: "color 250ms ease-out, background 500ms ease-out",
-						oTransition: "color 250ms ease-out, background 500ms ease-out",
-						mozTransition: "color 250ms ease-out, background 500ms ease-out",
+						OTransition: "color 250ms ease-out, background 500ms ease-out",
+						MozTransition: "color 250ms ease-out, background 500ms ease-out",
 						"&:hover": {
 							background: colors(type).primary,
 							backgroundImage: colors(type).primary,

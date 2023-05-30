@@ -29,8 +29,26 @@ const App = () => {
 					gap: "2vh",
 				}}
 			>
-				<LuConstruction size="20vh" color={colors(selectedOption).primary} />
-				<Typography variant="merriweather-heading3" color={colors(selectedOption).primary}>
+				<LuConstruction
+					size="20vh"
+					color={colors(selectedOption).primary}
+					style={{
+						WebkitTransition: "color 1s ease-out",
+						transition: "color 1s ease-out",
+						OTransition: "color 1s ease-out",
+						MozTransition: "color 1s ease-out",
+					}}
+				/>
+				<Typography
+					variant="merriweather-heading3"
+					color={colors(selectedOption).primary}
+					sx={{
+						WebkitTransition: "color 1s ease-out",
+						transition: "color 1s ease-out",
+						OTransition: "color 1s ease-out",
+						MozTransition: "color 1s ease-out",
+					}}
+				>
 					Página em construção
 				</Typography>
 			</Container>

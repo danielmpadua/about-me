@@ -74,7 +74,7 @@ export const Header = ({ selectedOption }: THeader) => {
 				>
 					<Slide in direction="down" timeout={2000}>
 						<Typography variant="merriweather-heading2" color="#fff">
-							Olá, me chamo
+							Prazer, sou
 						</Typography>
 					</Slide>
 
@@ -149,7 +149,8 @@ export const Header = ({ selectedOption }: THeader) => {
 								my: pxToRem(8),
 							}}
 						>
-							Sou um engenheiro de software apaixonado por tecnologia, música e diversos outros assuntos.
+							Um engenheiro de software apaixonado por tecnologia, música, desenvolvimento pessoal e diversas outras coisas. Vamos trocar uma ideia?
+							Entre em contato clicando nas minhas redes sociais abaixo! (Recomendo o Instagram)
 						</Typography>
 					</Slide>
 

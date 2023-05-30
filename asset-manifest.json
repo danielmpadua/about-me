@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/about-me/static/css/main.331a5f45.css",
+    "main.js": "/about-me/static/js/main.3c5f5924.js",
+    "static/js/787.28cb0dcd.chunk.js": "/about-me/static/js/787.28cb0dcd.chunk.js",
+    "static/media/danielbw.png": "/about-me/static/media/danielbw.c8bac492c46c29f0db02.png",
+    "static/media/merriweather-sans-latin-wght-normal.woff2": "/about-me/static/media/merriweather-sans-latin-wght-normal.4a2b96f2db1e0100197a.woff2",
+    "static/media/merriweather-sans-latin-ext-wght-normal.woff2": "/about-me/static/media/merriweather-sans-latin-ext-wght-normal.2b9b0abd8c773cee0a3d.woff2",
+    "static/media/oswald-latin-wght-normal.woff2": "/about-me/static/media/oswald-latin-wght-normal.a6903c7dfd242d03810b.woff2",
+    "static/media/oswald-latin-ext-wght-normal.woff2": "/about-me/static/media/oswald-latin-ext-wght-normal.b2d11a4ea6a6510ea926.woff2",
+    "static/media/oswald-cyrillic-wght-normal.woff2": "/about-me/static/media/oswald-cyrillic-wght-normal.99b581b274691b709f96.woff2",
+    "static/media/merriweather-sans-vietnamese-wght-normal.woff2": "/about-me/static/media/merriweather-sans-vietnamese-wght-normal.e1428e5b6b86e68e9d0f.woff2",
+    "static/media/oswald-vietnamese-wght-normal.woff2": "/about-me/static/media/oswald-vietnamese-wght-normal.32d34e76865f76ee728a.woff2",
+    "static/media/oswald-cyrillic-ext-wght-normal.woff2": "/about-me/static/media/oswald-cyrillic-ext-wght-normal.38fa694819d95d679fa1.woff2",
+    "static/media/merriweather-sans-cyrillic-ext-wght-normal.woff2": "/about-me/static/media/merriweather-sans-cyrillic-ext-wght-normal.232f9522f2b79b8cdd59.woff2",
+    "index.html": "/about-me/index.html",
+    "main.331a5f45.css.map": "/about-me/static/css/main.331a5f45.css.map",
+    "main.3c5f5924.js.map": "/about-me/static/js/main.3c5f5924.js.map",
+    "787.28cb0dcd.chunk.js.map": "/about-me/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.331a5f45.css",
+    "static/js/main.3c5f5924.js"
+  ]
+}

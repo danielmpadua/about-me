@@ -22,7 +22,8 @@ export const Header = ({ selectedOption }: THeader) => {
 
 	const imageSize = () => {
 		if (width === "xs") return pxToRem(120);
-		if (width === "sm" || width === "md") return pxToRem(140);
+		if (width === "sm") return pxToRem(160);
+		if (width === "md") return pxToRem(175);
 		return pxToRem(200);
 	};
 
@@ -36,7 +37,7 @@ export const Header = ({ selectedOption }: THeader) => {
 		<Box
 			ref={containerRef}
 			sx={{
-				padding: pxToRem(width === "xs" ? 16 : 32),
+				padding: pxToRem(width === "xs" ? 8 : 32),
 				display: "flex",
 				alignItems: "center",
 				flexDirection: "column",
@@ -79,7 +80,40 @@ export const Header = ({ selectedOption }: THeader) => {
 					</Slide>
 
 					{showAnimation && (
-						<Slide in direction="left" timeout={2000} onEntered={removeAnimation}>
+						<>
+							<Slide in direction="left" timeout={2000} onEntered={removeAnimation}>
+								<Typography
+									variant="merriweather-heading2"
+									color={colors(selectedOption).primary}
+									sx={{
+										webkitTransition: "color 1s ease-out",
+										transition: "color 1s ease-out",
+										oTransition: "color 1s ease-out",
+										mozTransition: "color 1s ease-out",
+									}}
+								>
+									Daniel Pádua
+								</Typography>
+							</Slide>
+
+							<Fade in timeout={3000}>
+								<Box
+									sx={{
+										maxWidth: pxToRem(200),
+										border: `${pxToRem(1)} solid ${colors(selectedOption).primary}`,
+										borderRadius: pxToRem(8),
+										webkitTransition: "border 1s ease-out",
+										transition: "border 1s ease-out",
+										oTransition: "border 1s ease-out",
+										mozTransition: "border 1s ease-out",
+									}}
+								/>
+							</Fade>
+						</>
+					)}
+
+					{!showAnimation && (
+						<>
 							<Typography
 								variant="merriweather-heading2"
 								color={colors(selectedOption).primary}
@@ -92,26 +126,7 @@ export const Header = ({ selectedOption }: THeader) => {
 							>
 								Daniel Pádua
 							</Typography>
-						</Slide>
-					)}
 
-					{!showAnimation && (
-						<Typography
-							variant="merriweather-heading2"
-							color={colors(selectedOption).primary}
-							sx={{
-								webkitTransition: "color 1s ease-out",
-								transition: "color 1s ease-out",
-								oTransition: "color 1s ease-out",
-								mozTransition: "color 1s ease-out",
-							}}
-						>
-							Daniel Pádua
-						</Typography>
-					)}
-
-					{showAnimation && (
-						<Fade in timeout={3000}>
 							<Box
 								sx={{
 									maxWidth: pxToRem(200),
@@ -123,21 +138,7 @@ export const Header = ({ selectedOption }: THeader) => {
 									mozTransition: "border 1s ease-out",
 								}}
 							/>
-						</Fade>
-					)}
-
-					{!showAnimation && (
-						<Box
-							sx={{
-								maxWidth: pxToRem(200),
-								border: `${pxToRem(1)} solid ${colors(selectedOption).primary}`,
-								borderRadius: pxToRem(8),
-								webkitTransition: "border 1s ease-out",
-								transition: "border 1s ease-out",
-								oTransition: "border 1s ease-out",
-								mozTransition: "border 1s ease-out",
-							}}
-						/>
+						</>
 					)}
 
 					<Slide in direction="left" timeout={2000}>

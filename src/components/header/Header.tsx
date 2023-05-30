@@ -164,24 +164,28 @@ export const Header = ({ selectedOption }: THeader) => {
 								}}
 							>
 								<SocialIcon
+									target="_blank"
 									url="https://www.instagram.com/danielmpadua"
 									bgColor={colors().primary}
 									style={{ width: iconSize(), height: iconSize() }}
 								/>
 
 								<SocialIcon
+									target="_blank"
 									url="https://www.facebook.com/daniel.marianopadua"
 									bgColor={colors().primary}
 									style={{ width: iconSize(), height: iconSize() }}
 								/>
 
 								<SocialIcon
+									target="_blank"
 									url="https://www.linkedin.com/in/danielmpadua"
 									bgColor={colors("CODE").primary}
 									style={{ width: iconSize(), height: iconSize() }}
 								/>
 
 								<SocialIcon
+									target="_blank"
 									url="https://github.com/danielmpadua"
 									bgColor={colors("CODE").primary}
 									style={{ width: iconSize(), height: iconSize() }}
@@ -201,24 +205,28 @@ export const Header = ({ selectedOption }: THeader) => {
 								}}
 							>
 								<SocialIcon
+									target="_blank"
 									url="https://www.instagram.com/danielpaduamusic"
 									bgColor={colors("MUSIC").primary}
 									style={{ width: iconSize(), height: iconSize() }}
 								/>
 
 								<SocialIcon
+									target="_blank"
 									url="https://www.tiktok.com/@danielpaduamusic"
 									bgColor={colors("MUSIC").primary}
 									style={{ width: iconSize(), height: iconSize() }}
 								/>
 
 								<SocialIcon
+									target="_blank"
 									url="https://www.youtube.com/@danielpaduamusic/"
 									bgColor={colors("MUSIC").primary}
 									style={{ width: iconSize(), height: iconSize() }}
 								/>
 
 								<SocialIcon
+									target="_blank"
 									url="mailto:danielpaduaofficial@gmail.com"
 									bgColor={colors("MUSIC").primary}
 									style={{ width: iconSize(), height: iconSize() }}
@@ -239,41 +247,57 @@ export const Header = ({ selectedOption }: THeader) => {
 							gap: pxToRem(16),
 						}}
 					>
-						<SocialIcon url="https://www.instagram.com/danielmpadua" bgColor={colors().primary} style={{ width: iconSize(), height: iconSize() }} />
+						<SocialIcon
+							target="_blank"
+							url="https://www.instagram.com/danielmpadua"
+							bgColor={colors().primary}
+							style={{ width: iconSize(), height: iconSize() }}
+						/>
 
 						<SocialIcon
+							target="_blank"
 							url="https://www.facebook.com/daniel.marianopadua"
 							bgColor={colors().primary}
 							style={{ width: iconSize(), height: iconSize() }}
 						/>
 
 						<SocialIcon
+							target="_blank"
 							url="https://www.linkedin.com/in/danielmpadua"
 							bgColor={colors("CODE").primary}
 							style={{ width: iconSize(), height: iconSize() }}
 						/>
 
-						<SocialIcon url="https://github.com/danielmpadua" bgColor={colors("CODE").primary} style={{ width: iconSize(), height: iconSize() }} />
+						<SocialIcon
+							target="_blank"
+							url="https://github.com/danielmpadua"
+							bgColor={colors("CODE").primary}
+							style={{ width: iconSize(), height: iconSize() }}
+						/>
 
 						<SocialIcon
+							target="_blank"
 							url="https://www.instagram.com/danielpaduamusic"
 							bgColor={colors("MUSIC").primary}
 							style={{ width: iconSize(), height: iconSize() }}
 						/>
 
 						<SocialIcon
+							target="_blank"
 							url="https://www.tiktok.com/@danielpaduamusic"
 							bgColor={colors("MUSIC").primary}
 							style={{ width: iconSize(), height: iconSize() }}
 						/>
 
 						<SocialIcon
+							target="_blank"
 							url="https://www.youtube.com/@danielpaduamusic/"
 							bgColor={colors("MUSIC").primary}
 							style={{ width: iconSize(), height: iconSize() }}
 						/>
 
 						<SocialIcon
+							target="_blank"
 							url="mailto:danielpaduaofficial@gmail.com"
 							bgColor={colors("MUSIC").primary}
 							style={{ width: iconSize(), height: iconSize() }}

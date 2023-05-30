@@ -22,3 +22,9 @@ export const fontResize = (pxValue: number, width: "xs" | "sm" | "md" | "lg" | "
 	if (width === "sm") return pxToRem(pxValue / 1.2);
 	return pxToRem(pxValue);
 };
+
+export const gradientPosition = (selectedOption?: string) => {
+	if (selectedOption === "CODE") return "";
+	if (selectedOption === "MUSIC") return "to bottom left,";
+	return "to bottom right,";
+};

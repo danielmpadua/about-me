@@ -1,144 +1,68 @@
 import { useRef } from "react";
+import { GiGuitarHead } from "react-icons/gi";
+import { RxPerson, RxCode } from "react-icons/rx";
 
-import { Box, Button, Container, Fade, Grid, Slide } from "@mui/material";
+import { Box, Container, Fade, Grid, Grow } from "@mui/material";
 
 import { colors } from "../../../styles";
-import { fontResize, pxToRem, useWidth } from "../../../utils";
+import { gradientPosition, pxToRem } from "../../../utils";
+import { CustomButton } from "./CustomButton";
 
 type TMenu = {
 	selectedOption: string;
 	onClick: (option: string) => void;
-	removeAnimation: () => void;
 	isSelected: (value: string) => boolean;
+	removeAnimation: () => void;
 };
 
-export const MenuAnimation = ({ selectedOption, onClick, removeAnimation, isSelected }: TMenu) => {
-	const containerRef = useRef(null);
-	const width = useWidth();
-
-	const buttonSize = () => {
-		if (width === "xs") return pxToRem(46);
-		if (width === "sm" || width === "md") return pxToRem(50);
-		return pxToRem(56);
-	};
+export const MenuAnimation = ({ selectedOption, onClick, isSelected, removeAnimation }: TMenu) => {
+	const menuContainerRef = useRef(null);
 
 	return (
 		<Fade in timeout={3000} onEntered={removeAnimation}>
 			<Box
-				ref={containerRef}
 				sx={{
-					background: `linear-gradient(to left, ${colors(selectedOption).backgroundMenu} , rgba(88,88,88,0.24413515406162467))`,
-					padding: pxToRem(32),
+					padding: pxToRem(16),
 					display: "flex",
+					maxHeight: 300,
 					alignItems: "center",
 					justifyContent: "center",
-					overflow: "hidden",
+					position: "relative",
 				}}
 			>
-				<Container maxWidth="xl">
-					<Grid container spacing={2} direction={width === "xs" ? "column" : "row"}>
+				<Box
+					sx={{
+						background: `linear-gradient(${gradientPosition(selectedOption)} ${colors(selectedOption).backgroundMenu} , rgba(88,88,88,0.10))`,
+						position: "absolute",
+						width: "100%",
+						height: "100%",
+						zIndex: 5,
+					}}
+				/>
+				<Container maxWidth="xl" sx={{ zIndex: 10 }} ref={menuContainerRef}>
+					<Grid container spacing={2}>
 						<Grid item xs={4} sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-							<Slide
-								in
-								unmountOnExit
-								mountOnEnter
-								direction={width === "xs" ? "left" : "down"}
-								timeout={selectedOption === "" ? 1000 : 2000}
-								container={containerRef.current}
-							>
-								<Button
-									variant="contained"
-									size="large"
-									onClick={() => onClick("")}
-									sx={{
-										background: isSelected("") ? colors("").primary : "#979da8",
-										color: "#000",
-										width: "80%",
-										height: buttonSize(),
-										fontFamily: "Merriweather Sans Variable",
-										fontStyle: "normal",
-										fontWeight: 500,
-										fontSize: fontResize(20, width),
-										lineHeight: fontResize(24, width),
-										"&:hover": {
-											background: isSelected("") ? colors("").primary : "#979da8",
-											backgroundImage: isSelected("") ? colors("").primary : `linear-gradient(45deg, #979da8 20%, ${colors("").primary} 90%)`,
-										},
-									}}
-								>
-									Pessoal
-								</Button>
-							</Slide>
+							<Grow in timeout={selectedOption === "" ? 1000 : 2000}>
+								<Box m={0} p={0} width="fit-content">
+									<CustomButton isSelected={isSelected} onClick={onClick} text="Sobre mim" type="" icon={<RxPerson size={pxToRem(40)} />} />
+								</Box>
+							</Grow>
 						</Grid>
 
 						<Grid item xs={4} sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-							<Slide
-								in
-								unmountOnExit
-								mountOnEnter
-								direction={width === "xs" ? "right" : "up"}
-								timeout={selectedOption === "CODE" ? 1000 : 2000}
-								container={containerRef.current}
-							>
-								<Button
-									variant="contained"
-									size="large"
-									onClick={() => onClick("CODE")}
-									sx={{
-										background: isSelected("CODE") ? colors("CODE").primary : "#979da8",
-										color: "#000",
-										width: "80%",
-										height: buttonSize(),
-										fontFamily: "Merriweather Sans Variable",
-										fontStyle: "normal",
-										fontWeight: 500,
-										fontSize: fontResize(20, width),
-										lineHeight: fontResize(24, width),
-										"&:hover": {
-											background: isSelected("CODE") ? colors("CODE").primary : "#979da8",
-											backgroundImage: isSelected("CODE") ? colors("CODE").primary : `linear-gradient(45deg, #979da8 20%, ${colors("").primary} 90%)`,
-										},
-									}}
-								>
-									Programação
-								</Button>
-							</Slide>
+							<Grow in timeout={selectedOption === "CODE" ? 1000 : 2000}>
+								<Box m={0} p={0} width="fit-content">
+									<CustomButton isSelected={isSelected} onClick={onClick} text="Programação" type="CODE" icon={<RxCode size={pxToRem(40)} />} />
+								</Box>
+							</Grow>
 						</Grid>
 
 						<Grid item xs={4} sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-							<Slide
-								in
-								unmountOnExit
-								mountOnEnter
-								direction={width === "xs" ? "left" : "down"}
-								timeout={selectedOption === "MUSIC" ? 1000 : 2000}
-								container={containerRef.current}
-							>
-								<Button
-									variant="contained"
-									size="large"
-									onClick={() => onClick("MUSIC")}
-									sx={{
-										background: isSelected("MUSIC") ? colors("MUSIC").primary : "#979da8",
-										color: "#000",
-										width: "80%",
-										height: buttonSize(),
-										fontFamily: "Merriweather Sans Variable",
-										fontStyle: "normal",
-										fontWeight: 500,
-										fontSize: fontResize(20, width),
-										lineHeight: fontResize(24, width),
-										"&:hover": {
-											background: isSelected("MUSIC") ? colors("MUSIC").primary : "#979da8",
-											backgroundImage: isSelected("MUSIC")
-												? colors("MUSIC").primary
-												: `linear-gradient(45deg, #979da8 20%, ${colors("").primary} 90%)`,
-										},
-									}}
-								>
-									Música
-								</Button>
-							</Slide>
+							<Grow in timeout={selectedOption === "MUSIC" ? 1000 : 2000}>
+								<Box m={0} p={0} width="fit-content">
+									<CustomButton isSelected={isSelected} onClick={onClick} text="Música" type="MUSIC" icon={<GiGuitarHead size={pxToRem(40)} />} />
+								</Box>
+							</Grow>
 						</Grid>
 					</Grid>
 				</Container>

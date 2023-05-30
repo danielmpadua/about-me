@@ -11,7 +11,7 @@ export const colors = (theme?: string) => {
 
 		case "MUSIC":
 			primary = "#F9C200";
-			backgroundMenu = "rgba(255,214,0,0.25)";
+			backgroundMenu = "rgba(249,194,0,0.25)";
 			break;
 
 		default:

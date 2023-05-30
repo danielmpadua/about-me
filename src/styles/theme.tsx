@@ -2,6 +2,7 @@ import { createTheme } from "@mui/material/styles";
 
 import "@fontsource-variable/oswald";
 import "@fontsource-variable/merriweather-sans";
+
 import { fontResize, useWidth } from "../utils";
 
 declare module "@mui/material/styles" {
@@ -94,6 +95,9 @@ export const CustomTheme = () => {
 	return createTheme({
 		typography: {
 			fontFamily: ["Oswald Variable", "Merriweather Sans Variable", "sans-serif"].join(","),
+
+			// ----------------- Oswald -----------------
+
 			"oswald-caption-medium": {
 				fontFamily: "Oswald Variable",
 				fontStyle: "normal",
@@ -171,6 +175,8 @@ export const CustomTheme = () => {
 				fontSize: fontResize(12, width),
 				lineHeight: fontResize(15, width),
 			},
+
+			// ----------------- Merriweather -----------------
 
 			"merriweather-caption-medium": {
 				fontFamily: "Merriweather Sans Variable",

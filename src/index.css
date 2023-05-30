@@ -3,12 +3,12 @@ body {
 	background: #000;
 	max-height: 100vh;
 	max-width: 100vw;
-	font-family: "Merriweather Sans Variable", "Oswald Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-		"Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	font-family: "Merriweather Sans Variable", "Oswald Variable", "Tourney Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-	font-family: "Merriweather Sans Variable", "Oswald Variable", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+	font-family: "Merriweather Sans Variable", "Oswald Variable", "Tourney Variable", source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }

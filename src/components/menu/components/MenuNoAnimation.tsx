@@ -1,7 +1,10 @@
+import { GiGuitarHead } from "react-icons/gi";
+import { RxPerson, RxCode } from "react-icons/rx";
+
 import { Box, Container, Grid } from "@mui/material";
 
 import { colors } from "../../../styles";
-import { pxToRem, useWidth } from "../../../utils";
+import { gradientPosition, pxToRem } from "../../../utils";
 import { CustomButton } from "./CustomButton";
 
 type TMenu = {
@@ -11,8 +14,6 @@ type TMenu = {
 };
 
 export const MenuNoAnimation = ({ selectedOption, onClick, isSelected }: TMenu) => {
-	const width = useWidth();
-
 	return (
 		<Box
 			sx={{
@@ -25,24 +26,25 @@ export const MenuNoAnimation = ({ selectedOption, onClick, isSelected }: TMenu) 
 		>
 			<Box
 				sx={{
-					background: `linear-gradient(to left, ${colors(selectedOption).backgroundMenu} , rgba(88,88,88,0.24413515406162467))`,
+					background: `linear-gradient(${gradientPosition(selectedOption)} ${colors(selectedOption).backgroundMenu} , rgba(88,88,88,0.10))`,
 					position: "absolute",
 					width: "100%",
 					height: "100%",
+					zIndex: 5,
 				}}
 			/>
-			<Container maxWidth="xl">
-				<Grid container spacing={2} direction={width === "xs" ? "column" : "row"}>
+			<Container maxWidth="xl" sx={{ zIndex: 10 }}>
+				<Grid container spacing={2}>
 					<Grid item xs={4} sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-						<CustomButton isSelected={isSelected} onClick={onClick} text="Pessoal" type="" />
+						<CustomButton isSelected={isSelected} onClick={onClick} text="Sobre mim" type="" icon={<RxPerson size={pxToRem(40)} />} />
 					</Grid>
 
 					<Grid item xs={4} sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-						<CustomButton isSelected={isSelected} onClick={onClick} text="Programação" type="CODE" />
+						<CustomButton isSelected={isSelected} onClick={onClick} text="Programação" type="CODE" icon={<RxCode size={pxToRem(40)} />} />
 					</Grid>
 
 					<Grid item xs={4} sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-						<CustomButton isSelected={isSelected} onClick={onClick} text="Música" type="MUSIC" />
+						<CustomButton isSelected={isSelected} onClick={onClick} text="Música" type="MUSIC" icon={<GiGuitarHead size={pxToRem(40)} />} />
 					</Grid>
 				</Grid>
 			</Container>

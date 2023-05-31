@@ -15,8 +15,7 @@ export const Header = ({ selectedOption }: THeader) => {
 	const containerRef = useRef(null);
 
 	const imageSize = () => {
-		if (width === "xs") return pxToRem(80);
-		if (width === "sm") return pxToRem(100);
+		if (width === "xs" || width === "sm") return pxToRem(100);
 		if (width === "md") return pxToRem(120);
 		if (width === "lg") return pxToRem(140);
 		return pxToRem(240);
@@ -52,7 +51,11 @@ export const Header = ({ selectedOption }: THeader) => {
 					<HeaderTitle selectedOption={selectedOption} />
 
 					<Slide in direction="left" timeout={2000}>
-						<Typography color="#808ca4" sx={{ maxWidth: textWidth(), my: pxToRem(IsMobile() ? 4 : 8) }} variant={"merriweather-footnote-regular"}>
+						<Typography
+							color="#808ca4"
+							sx={{ maxWidth: textWidth(), mt: pxToRem(IsMobile() ? 4 : 8), mb: pxToRem(IsMobile() ? 0 : 8) }}
+							variant={IsMobile() ? "merriweather-body-regular" : "merriweather-footnote-regular"}
+						>
 							Um engenheiro de software apaixonado por tecnologia, música, desenvolvimento pessoal e diversas outras coisas. Vamos trocar uma ideia?
 							Entre em contato clicando nas minhas redes sociais abaixo! (Recomendo o Instagram)
 						</Typography>

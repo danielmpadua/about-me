@@ -18,8 +18,9 @@ export function useWidth() {
 }
 
 export const fontResize = (pxValue: number, width: "xs" | "sm" | "md" | "lg" | "xl") => {
-	if (width === "xs") return pxToRem(pxValue / 1.6);
-	if (width === "sm") return pxToRem(pxValue / 1.2);
+	if (width === "xs") return pxToRem(pxValue / 2);
+	if (width === "sm") return pxToRem(pxValue / 1.4);
+	if (width === "md") return pxToRem(pxValue / 1.2);
 	return pxToRem(pxValue);
 };
 
@@ -27,4 +28,22 @@ export const gradientPosition = (selectedOption?: string) => {
 	if (selectedOption === "CODE") return "";
 	if (selectedOption === "MUSIC") return "to bottom left,";
 	return "to bottom right,";
+};
+
+export const IsMobile = () => {
+	const width = useWidth();
+	return width === "xs";
+};
+
+export const IsNotMobile = () => {
+	return !IsMobile();
+};
+
+export const IsDesktop = () => {
+	const width = useWidth();
+	return Boolean(width === "xl" || width === "lg" || width === "md");
+};
+
+export const IsNotDesktop = () => {
+	return !IsDesktop();
 };

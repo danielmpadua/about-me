@@ -21,7 +21,8 @@ export const fontResize = (pxValue: number, width: "xs" | "sm" | "md" | "lg" | "
 	if (width === "xs") return pxToRem(pxValue / 2);
 	if (width === "sm") return pxToRem(pxValue / 1.4);
 	if (width === "md") return pxToRem(pxValue / 1.2);
-	return pxToRem(pxValue);
+	if (width === "lg") return pxToRem(pxValue);
+	return pxToRem(pxValue * 1.4);
 };
 
 export const gradientPosition = (selectedOption?: string) => {

@@ -15,12 +15,13 @@ export const SocialIcons = ({ containerRef }: TSocialIcons) => {
 	const iconSize = () => {
 		if (IsMobile()) return pxToRem(20);
 		if (width === "sm" || width === "md") return pxToRem(24);
-		return pxToRem(28);
+		if (width === "lg") return pxToRem(28);
+		return pxToRem(40);
 	};
 
 	return (
 		<Slide direction="up" in container={containerRef.current} timeout={2000}>
-			<Box sx={{ display: "flex", alignItems: "center", maxWidth: pxToRem(350), gap: pxToRem(16) }}>
+			<Box sx={{ display: "flex", alignItems: "center", gap: pxToRem(16) }}>
 				<SocialIcon
 					target="_blank"
 					bgColor={colors().primary}

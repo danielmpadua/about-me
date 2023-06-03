@@ -17,14 +17,6 @@ export function useWidth() {
 	);
 }
 
-export const fontResize = (pxValue: number, width: "xs" | "sm" | "md" | "lg" | "xl") => {
-	if (width === "xs") return pxToRem(pxValue / 2);
-	if (width === "sm") return pxToRem(pxValue / 1.4);
-	if (width === "md") return pxToRem(pxValue / 1.2);
-	if (width === "lg") return pxToRem(pxValue);
-	return pxToRem(pxValue * 1.4);
-};
-
 export const gradientPosition = (selectedOption?: string) => {
 	if (selectedOption === "CODE") return "";
 	if (selectedOption === "MUSIC") return "to bottom left,";

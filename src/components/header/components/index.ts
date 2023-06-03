@@ -1,2 +1,4 @@
-export * from "./SocialIcons";
-export * from "./HeaderTitle";
+export * from "./socialIcons";
+export * from "./headerTitle";
+export * from "./headerImage";
+export * from "./headerSubtitle";

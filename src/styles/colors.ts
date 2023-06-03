@@ -1,7 +1,8 @@
 export const colors = (theme?: string) => {
+	const background = "#000";
+
 	let primary = "";
 	let backgroundMenu = "";
-	const background = "#000";
 
 	switch (theme) {
 		case "CODE":

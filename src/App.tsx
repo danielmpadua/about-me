@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { Scrollbars } from "react-custom-scrollbars";
 import { LuConstruction } from "react-icons/lu";
 
 import { Container, Typography } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 
-import { Header, Menu } from "./components";
+import { Presentation } from "./components";
 import { CustomTheme, colors } from "./styles";
 
 const App = () => {
@@ -16,42 +17,42 @@ const App = () => {
 
 	return (
 		<ThemeProvider theme={CustomTheme()}>
-			<Header selectedOption={selectedOption} />
-			<Menu selectedOption={selectedOption} changeOption={changeOption} />
-			<Container
-				maxWidth="xl"
-				sx={{
-					display: "flex",
-					flexDirection: "column",
-					alignItems: "center",
-					justifyContent: "center",
-					mt: "4vh",
-					gap: "2vh",
-				}}
-			>
-				<LuConstruction
-					size="20vh"
-					color={colors(selectedOption).primary}
-					style={{
-						WebkitTransition: "color 1s ease-out",
-						transition: "color 1s ease-out",
-						OTransition: "color 1s ease-out",
-						MozTransition: "color 1s ease-out",
-					}}
-				/>
-				<Typography
-					variant="merriweather-heading3"
-					color={colors(selectedOption).primary}
+			<Scrollbars hidden={false} autoHeight={true} autoHeightMax="100vh">
+				<Presentation selectedOption={selectedOption} changeOption={changeOption} />
+				<Container
+					maxWidth="xl"
 					sx={{
-						WebkitTransition: "color 1s ease-out",
-						transition: "color 1s ease-out",
-						OTransition: "color 1s ease-out",
-						MozTransition: "color 1s ease-out",
+						display: "flex",
+						flexDirection: "column",
+						alignItems: "center",
+						justifyContent: "center",
+						height: "100vh",
 					}}
 				>
-					Página em construção
-				</Typography>
-			</Container>
+					<LuConstruction
+						size="20vh"
+						color={colors(selectedOption).primary}
+						style={{
+							WebkitTransition: "color 1s ease-out",
+							transition: "color 1s ease-out",
+							OTransition: "color 1s ease-out",
+							MozTransition: "color 1s ease-out",
+						}}
+					/>
+					<Typography
+						variant="merriweather-heading3"
+						color={colors(selectedOption).primary}
+						sx={{
+							WebkitTransition: "color 1s ease-out",
+							transition: "color 1s ease-out",
+							OTransition: "color 1s ease-out",
+							MozTransition: "color 1s ease-out",
+						}}
+					>
+						Página em construção
+					</Typography>
+				</Container>
+			</Scrollbars>
 		</ThemeProvider>
 	);
 };

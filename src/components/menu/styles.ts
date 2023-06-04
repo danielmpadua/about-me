@@ -4,9 +4,11 @@ import { pxToRem } from "../../utils";
 
 export const useStyles = makeStyles({
 	root: {
-		padding: pxToRem(16),
+		paddingTop: pxToRem(16),
+		paddingBottom: pxToRem(16),
 		display: "flex",
 		maxHeight: 300,
+		width: "100%",
 		alignItems: "center",
 		justifyContent: "center",
 		position: "relative",

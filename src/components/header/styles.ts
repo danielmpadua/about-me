@@ -10,7 +10,7 @@ export const useStyles = makeStyles({
 		alignItems: "center",
 		flexDirection: "column",
 		justifyContent: "center",
-		padding: pxToRem(32),
+		paddingBottom: pxToRem(32),
 	},
 
 	headerContainer: {

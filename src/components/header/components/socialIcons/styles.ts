@@ -2,15 +2,18 @@ import { makeStyles } from "@material-ui/core";
 
 import { pxToRem } from "../../../../utils";
 
-export const useStyles = makeStyles({
+export const useStyles = makeStyles((theme) => ({
 	container: {
 		display: "flex",
 		alignItems: "center",
 		gap: pxToRem(32),
-	},
 
-	icon: {
-		width: pxToRem(59),
-		height: pxToRem(59),
+		[theme.breakpoints.down("lg")]: {
+			gap: pxToRem(22),
+		},
+
+		[theme.breakpoints.down("md")]: {
+			gap: pxToRem(16),
+		},
 	},
-});
+}));

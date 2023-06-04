@@ -1,7 +1,8 @@
-import { Box, Fade, Slide, Typography } from "@mui/material";
+import clsx from "clsx";
+
+import { Box, Fade, Slide } from "@mui/material";
 
 import { colors } from "../../../../styles";
-import { pxToRem } from "../../../../utils";
 import { useStyles } from "./styles";
 
 type THeaderTitle = {
@@ -17,33 +18,31 @@ export const HeaderTitle = ({ selectedOption, showAnimation, removeAnimation }: 
 		<Box className={classes.container}>
 			<Box className={classes.title}>
 				<Slide in direction="down" timeout={2005} onEntered={removeAnimation}>
-					<Typography variant="merriweather-title-xl" color="#fff">
-						Prazer, sou
-					</Typography>
+					<Box className={classes.text}>Prazer, sou</Box>
 				</Slide>
 
 				{showAnimation && (
 					<Slide in direction="left" timeout={2000}>
-						<Typography variant="merriweather-title-xl" color={colors(selectedOption).primary}>
+						<Box className={classes.text} sx={{ color: colors(selectedOption).primary }}>
 							Daniel Pádua
-						</Typography>
+						</Box>
 					</Slide>
 				)}
 
 				{!showAnimation && (
-					<Typography variant="merriweather-title-xl" color={colors(selectedOption).primary} className={classes.titleTransition}>
+					<Box className={clsx(classes.titleTransition, classes.text)} sx={{ color: colors(selectedOption).primary }}>
 						Daniel Pádua
-					</Typography>
+					</Box>
 				)}
 			</Box>
 
 			{showAnimation && (
 				<Fade in timeout={3000}>
-					<Box className={classes.line} sx={{ border: `${pxToRem(2)} solid ${colors(selectedOption).primary}` }} />
+					<Box className={classes.line} sx={{ borderColor: `${colors(selectedOption).primary}` }} />
 				</Fade>
 			)}
 
-			{!showAnimation && <Box className={classes.lineTransition} sx={{ border: `${pxToRem(2)} solid ${colors(selectedOption).primary}` }} />}
+			{!showAnimation && <Box className={clsx(classes.line, classes.lineTransition)} sx={{ borderColor: `${colors(selectedOption).primary}` }} />}
 		</Box>
 	);
 };

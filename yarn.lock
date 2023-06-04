@@ -1452,11 +1452,6 @@
   resolved "https://registry.yarnpkg.com/@fontsource-variable/merriweather-sans/-/merriweather-sans-5.0.2.tgz#c8a19f922e5f9d4618e4e6653aade3c10a914d8b"
   integrity sha512-OIMkmGfhmzgS7+M1O63NPCDvTr8hQVj4w6ff28AzWF7QL5ZIzOh/mMBrFoa4bfYnvmYKrJ7E97oCv+iAkyabtQ==
 
-"@fontsource-variable/oswald@^5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@fontsource-variable/oswald/-/oswald-5.0.1.tgz#2e32dd57e4551544344e45a493019c9de95f48bf"
-  integrity sha512-VFYNxBDv5vBazMM4o7XI9xNH1nucVDdgeVvECLHStOAHarSNF9GsDtItbEBxT9bsbDJg8+kVaryR1nkfngaAOw==
-
 "@humanwhocodes/config-array@^0.11.8":
   version "0.11.8"
   resolved "https://registry.yarnpkg.com/@humanwhocodes/config-array/-/config-array-0.11.8.tgz#03595ac2075a4dc0f191cc2131de14fbd7d410b9"

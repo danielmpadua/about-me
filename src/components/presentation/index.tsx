@@ -47,7 +47,7 @@ export const Presentation = ({ selectedOption, changeOption }: TPresentation) =>
 						}}
 					/>
 					<Typography
-						variant="merriweather-heading3"
+						variant="merriweather-title-xl"
 						color={colors(selectedOption).primary}
 						sx={{
 							WebkitTransition: "color 1s ease-out",

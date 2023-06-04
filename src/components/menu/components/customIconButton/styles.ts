@@ -13,9 +13,6 @@ export const useStyles = makeStyles({
 
 	iconBorder: {
 		borderRadius: pxToRem(200),
-		width: pxToRem(60),
-		height: pxToRem(60),
-		padding: pxToRem(4),
 		webkitTransition: "border 500ms ease-out",
 		transition: "border 500ms ease-out",
 		oTransition: "border 500ms ease-out",

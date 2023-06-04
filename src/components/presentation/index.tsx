@@ -1,12 +1,13 @@
 import { Header, Menu } from "..";
 
-import { Box, Fade } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 
-import { NeonArrows } from "../../assets";
+import { Scrollbars } from "react-custom-scrollbars";
+
 import { colors } from "../../styles";
 import { useStyles } from "./styles";
 
-import { useState } from "react";
+import { LuConstruction } from "react-icons/lu";
 
 type TPresentation = {
 	selectedOption: string;
@@ -16,22 +17,49 @@ type TPresentation = {
 export const Presentation = ({ selectedOption, changeOption }: TPresentation) => {
 	const classes = useStyles();
 
-	const [showAnimation, setShowAnimation] = useState(true);
-
-	const removeAnimation = () => {
-		setShowAnimation(false);
-	};
 	return (
-		<Box className={classes.root}>
-			<Header selectedOption={selectedOption} />
+		<Scrollbars hidden={false} autoHeight={true} autoHeightMax="100vh">
+			<Box className={classes.root}>
+				<Header selectedOption={selectedOption} />
 
-			<Menu selectedOption={selectedOption} changeOption={changeOption} />
-
-			<Fade in timeout={2000} onEntered={removeAnimation}>
-				<Box className={showAnimation ? classes.icon : classes.iconAnimation}>
-					<NeonArrows size={30} color={colors(selectedOption).primary} />
+				<Box className={classes.sticky}>
+					<Menu selectedOption={selectedOption} changeOption={changeOption} />
 				</Box>
-			</Fade>
-		</Box>
+
+				<Container
+					maxWidth="xl"
+					sx={{
+						display: "flex",
+						flexDirection: "column",
+						alignItems: "center",
+						justifyContent: "center",
+						height: "100vh",
+					}}
+				>
+					<LuConstruction
+						size="20vh"
+						color={colors(selectedOption).primary}
+						style={{
+							WebkitTransition: "color 1s ease-out",
+							transition: "color 1s ease-out",
+							OTransition: "color 1s ease-out",
+							MozTransition: "color 1s ease-out",
+						}}
+					/>
+					<Typography
+						variant="merriweather-heading3"
+						color={colors(selectedOption).primary}
+						sx={{
+							WebkitTransition: "color 1s ease-out",
+							transition: "color 1s ease-out",
+							OTransition: "color 1s ease-out",
+							MozTransition: "color 1s ease-out",
+						}}
+					>
+						Página em construção
+					</Typography>
+				</Container>
+			</Box>
+		</Scrollbars>
 	);
 };

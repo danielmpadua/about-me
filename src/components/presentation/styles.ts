@@ -3,20 +3,9 @@ import { makeStyles } from "@material-ui/core";
 import { pxToRem } from "../../utils";
 
 export const useStyles = makeStyles({
-	"@keyframes fadeIn": {
-		"0%": {
-			opacity: 1,
-		},
-		"50%": {
-			opacity: 0.3,
-		},
-		"100%": {
-			opacity: 1,
-		},
-	},
-
 	root: {
-		height: "100vh",
+		paddingTop: pxToRem(16),
+		width: "100%",
 		display: "flex",
 		flexDirection: "column",
 		alignItems: "center",
@@ -24,14 +13,10 @@ export const useStyles = makeStyles({
 		position: "relative",
 	},
 
-	iconAnimation: {
-		position: "absolute",
-		bottom: pxToRem(16),
-		animation: "$fadeIn 2s infinite ease",
-	},
-
-	icon: {
-		position: "absolute",
-		bottom: pxToRem(16),
+	sticky: {
+		zIndex: 10,
+		position: "sticky",
+		top: 0,
+		width: "100%",
 	},
 });

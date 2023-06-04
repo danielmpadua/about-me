@@ -13,10 +13,10 @@ export const useStyles = makeStyles({
 
 	iconBorder: {
 		borderRadius: pxToRem(200),
-		webkitTransition: "border 500ms ease-out",
-		transition: "border 500ms ease-out",
-		oTransition: "border 500ms ease-out",
-		mozTransition: "border 500ms ease-out",
+		WebkitTransition: "border 500ms ease-out, width 200ms ease-out, height 200ms ease-out",
+		transition: "border 500ms ease-out, width 200ms ease-out, height 200ms ease-out",
+		OTransition: "border 500ms ease-out, width 200ms ease-out, height 200ms ease-out",
+		MozTransition: "border 500ms ease-out, width 200ms ease-out, height 200ms ease-out",
 	},
 
 	icon: {

@@ -3,15 +3,15 @@ import { useRef, useState } from "react";
 import { Box } from "@mui/material";
 
 import { HeaderImage, HeaderSubtitle, HeaderTitle, SocialIcons } from "./components";
-import { useStyles } from "./HeaderStyles";
+import { useStyles } from "./styles";
 
 type THeader = {
 	selectedOption: string;
 };
 
 export const Header = ({ selectedOption }: THeader) => {
-	const containerRef = useRef(null);
 	const classes = useStyles();
+	const containerRef = useRef(null);
 
 	const [showAnimation, setShowAnimation] = useState(true);
 

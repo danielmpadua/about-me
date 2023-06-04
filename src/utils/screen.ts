@@ -17,12 +17,6 @@ export function useWidth() {
 	);
 }
 
-export const gradientPosition = (selectedOption?: string) => {
-	if (selectedOption === "CODE") return "";
-	if (selectedOption === "MUSIC") return "to bottom left,";
-	return "to bottom right,";
-};
-
 export const IsMobile = () => {
 	const width = useWidth();
 	return width === "xs";

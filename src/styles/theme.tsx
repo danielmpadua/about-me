@@ -21,7 +21,7 @@ declare module "@mui/material/styles" {
 
 		"merriweather-title-xl": React.CSSProperties;
 		"merriweather-subtitle-xl": React.CSSProperties;
-		"merriweather-body-bold": React.CSSProperties;
+		"merriweather-menu-xl": React.CSSProperties;
 		"merriweather-body-regular": React.CSSProperties;
 		"merriweather-heading2": React.CSSProperties;
 		"merriweather-heading3": React.CSSProperties;
@@ -48,7 +48,7 @@ declare module "@mui/material/styles" {
 
 		"merriweather-title-xl"?: React.CSSProperties;
 		"merriweather-subtitle-xl"?: React.CSSProperties;
-		"merriweather-body-bold"?: React.CSSProperties;
+		"merriweather-menu-xl"?: React.CSSProperties;
 		"merriweather-body-regular"?: React.CSSProperties;
 		"merriweather-heading2"?: React.CSSProperties;
 		"merriweather-heading3": React.CSSProperties;
@@ -77,7 +77,7 @@ declare module "@mui/material/Typography" {
 
 		"merriweather-title-xl": true;
 		"merriweather-subtitle-xl": true;
-		"merriweather-body-bold": true;
+		"merriweather-menu-xl": true;
 		"merriweather-body-regular": true;
 		"merriweather-heading2": true;
 		"merriweather-heading3": true;
@@ -188,12 +188,11 @@ export const CustomTheme = () => {
 				fontWeight: 400,
 				fontSize: pxToRem(32),
 			},
-			"merriweather-body-bold": {
+			"merriweather-menu-xl": {
 				fontFamily: "Merriweather Sans Variable",
 				fontStyle: "normal",
-				fontWeight: 600,
-				fontSize: pxToRem(16),
-				lineHeight: pxToRem(19.36),
+				fontWeight: 800,
+				fontSize: pxToRem(20),
 			},
 			"merriweather-body-regular": {
 				fontFamily: "Merriweather Sans Variable",

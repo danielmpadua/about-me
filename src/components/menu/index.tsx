@@ -37,7 +37,7 @@ export const Menu = ({ selectedOption, changeOption }: TMenu) => {
 	const scrollHandler = () => {
 		const top = ref?.current?.getBoundingClientRect()?.top;
 		if (top !== undefined && top <= 0) setIsSticky(true);
-		if (top !== undefined && top > 5) setIsSticky(false);
+		if (top !== undefined && top > 40) setIsSticky(false);
 	};
 
 	const SetSize = () => {

@@ -19,7 +19,7 @@ export const MenuButtons = ({ onClick, isSelected, isSticky }: TMenuButtons) => 
 	return (
 		<Container maxWidth="xl" className={classes.container}>
 			<Fade in timeout={1500}>
-				<Grid container spacing={2}>
+				<Grid container>
 					<Grid item xs={4} className={classes.itemContainer}>
 						<CustomIconButton
 							slideDirection="down"

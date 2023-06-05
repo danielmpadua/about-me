@@ -27,7 +27,7 @@ export const MenuButtons = ({ onClick, isSelected, isSticky }: TMenuButtons) => 
 							isSticky={isSticky}
 							isSelected={isSelected}
 							onClick={onClick}
-							text="Sobre mim"
+							text="Pessoal"
 							type=""
 							icon={<RxPerson size={pxToRem(40)} />}
 						/>
@@ -40,7 +40,7 @@ export const MenuButtons = ({ onClick, isSelected, isSticky }: TMenuButtons) => 
 							isSticky={isSticky}
 							isSelected={isSelected}
 							onClick={onClick}
-							text="Programação"
+							text="Profissional"
 							type="CODE"
 							icon={<RxCode size={pxToRem(40)} />}
 						/>

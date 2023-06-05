@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 
-import { Box, Fade } from "@mui/material";
+import clsx from "clsx";
+
+import { Box, Fade, useMediaQuery } from "@mui/material";
 
 import { NeonArrows } from "../../assets";
-import { colors } from "../../styles";
-import { pxToRem } from "../../utils";
+import { CustomTheme, colors } from "../../styles";
 import { MenuButtons } from "./components";
 import { useStyles } from "./styles";
 
@@ -14,11 +15,15 @@ type TMenu = {
 };
 
 export const Menu = ({ selectedOption, changeOption }: TMenu) => {
+	const theme = CustomTheme();
 	const classes = useStyles();
 	const ref = useRef<HTMLElement>(null);
 
 	const [showAnimation, setShowAnimation] = useState(true);
 	const [isSticky, setIsSticky] = useState(false);
+
+	const isBellowMd = useMediaQuery(theme.breakpoints.down("md"));
+	const isBellowLg = useMediaQuery(theme.breakpoints.down("lg"));
 
 	const isSelected = (value: string) => {
 		if (value === selectedOption) return true;
@@ -35,6 +40,12 @@ export const Menu = ({ selectedOption, changeOption }: TMenu) => {
 		if (top !== undefined && top > 5) setIsSticky(false);
 	};
 
+	const SetSize = () => {
+		if (isBellowMd) return 24;
+		if (isBellowLg) return 26;
+		return 28;
+	};
+
 	useEffect(() => {
 		window.addEventListener("scroll", scrollHandler, true);
 		return () => {
@@ -44,33 +55,27 @@ export const Menu = ({ selectedOption, changeOption }: TMenu) => {
 	}, []);
 
 	return (
-		<Box ref={ref} sx={{ height: 180 }}>
+		<Box ref={ref}>
 			<Box className={classes.root}>
 				<Fade in={selectedOption === ""} timeout={showAnimation ? 3000 : 1000} onEntered={removeAnimation}>
-					<Box className={classes.purpleBackground} />
+					<Box className={clsx(classes.background, classes.purpleBackground)} />
 				</Fade>
 
 				<Fade in={selectedOption === "CODE"} timeout={showAnimation ? 3000 : 1000} onEntered={removeAnimation}>
-					<Box className={classes.greenBackground} />
+					<Box className={clsx(classes.background, classes.greenBackground)} />
 				</Fade>
 
 				<Fade in={selectedOption === "MUSIC"} timeout={showAnimation ? 3000 : 1000} onEntered={removeAnimation}>
-					<Box className={classes.yellowBackground} />
+					<Box className={clsx(classes.background, classes.yellowBackground)} />
 				</Fade>
 
 				<MenuButtons isSticky={isSticky} isSelected={isSelected} onClick={changeOption} />
 			</Box>
 
 			<Fade in timeout={2000}>
-				<Box
-					className={classes.arrow}
-					sx={{
-						transform: isSticky ? "rotate(180deg)" : "inherit",
-						background: `linear-gradient(${isSticky ? "1turn," : ""}rgba(0,0,0,1) 50%, rgba(0,0,0,0))`,
-					}}
-				>
-					<Box className={showAnimation ? classes.icon : classes.iconAnimation} sx={{ marginTop: pxToRem(isSticky ? 68 : 32) }}>
-						<NeonArrows size={30} color={colors(selectedOption).primary} className={classes.transition} />
+				<Box className={clsx(classes.arrow, isSticky && classes.arrowSticky)}>
+					<Box className={clsx(classes.icon, !showAnimation && classes.iconAnimation, isSticky && classes.iconSticky)}>
+						<NeonArrows size={SetSize()} color={colors(selectedOption).primary} className={classes.transition} />
 					</Box>
 				</Box>
 			</Fade>

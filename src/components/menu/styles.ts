@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core";
 import { colors } from "../../styles";
 import { pxToRem } from "../../utils";
 
-export const useStyles = makeStyles({
+export const useStyles = makeStyles((theme) => ({
 	"@keyframes fadeIn": {
 		"0%": {
 			opacity: 1,
@@ -26,30 +26,35 @@ export const useStyles = makeStyles({
 		justifyContent: "center",
 		position: "relative",
 		background: colors().background,
+
+		[theme.breakpoints.down("lg")]: {
+			paddingTop: pxToRem(14),
+			paddingBottom: pxToRem(14),
+		},
+
+		[theme.breakpoints.down("md")]: {
+			paddingTop: pxToRem(12),
+			paddingBottom: pxToRem(12),
+		},
+	},
+
+	background: {
+		zIndex: 5,
+		width: "100%",
+		height: "100%",
+		position: "absolute",
 	},
 
 	purpleBackground: {
-		zIndex: 5,
-		width: "100%",
-		height: "100%",
-		position: "absolute",
-		background: `linear-gradient(to bottom right, rgba(150,51,237,0.25), rgba(88,88,88,0.05))`,
+		background: `linear-gradient(to bottom right, rgba(150,51,237,0.25), rgba(0,0,0,0))`,
 	},
 
 	greenBackground: {
-		zIndex: 5,
-		width: "100%",
-		height: "100%",
-		position: "absolute",
-		background: `linear-gradient(rgba(14,133,1,0.25), rgba(88,88,88,0.05))`,
+		background: `linear-gradient(rgba(14,133,1,0.25), rgba(0,0,0,0))`,
 	},
 
 	yellowBackground: {
-		zIndex: 5,
-		width: "100%",
-		height: "100%",
-		position: "absolute",
-		background: "linear-gradient(to bottom left, rgba(249,194,0,0.2), rgba(88,88,88,0.05))",
+		background: "linear-gradient(to bottom left, rgba(249,194,0,0.2), rgba(0,0,0,0))",
 	},
 
 	arrow: {
@@ -57,19 +62,35 @@ export const useStyles = makeStyles({
 		width: "100%",
 		display: "flex",
 		justifyContent: "center",
+		background: `linear-gradient(rgba(0,0,0,1) 50%, rgba(0,0,0,0))`,
+	},
+
+	arrowSticky: {
+		transform: "rotate(180deg)",
+		background: `linear-gradient(1turn, rgba(0,0,0,1) 50%, rgba(0,0,0,0))`,
 	},
 
 	iconAnimation: {
 		animation: "$fadeIn 2s infinite ease",
-		width: "100%",
-		display: "flex",
-		justifyContent: "center",
 	},
 
 	icon: {
 		width: "100%",
 		display: "flex",
 		justifyContent: "center",
+		marginTop: pxToRem(26),
+
+		[theme.breakpoints.down("md")]: {
+			marginTop: pxToRem(22),
+		},
+	},
+
+	iconSticky: {
+		marginTop: pxToRem(80),
+
+		[theme.breakpoints.down("md")]: {
+			marginTop: pxToRem(86),
+		},
 	},
 
 	transition: {
@@ -78,4 +99,4 @@ export const useStyles = makeStyles({
 		MozTransition: "fill 1s ease-out",
 		WebkitTransition: "fill 1s ease-out",
 	},
-});
+}));

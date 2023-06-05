@@ -1,8 +1,8 @@
 import { SocialIcon } from "react-social-icons";
 
-import { Box, Slide, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Slide, useMediaQuery } from "@mui/material";
 
-import { colors } from "../../../../styles";
+import { CustomTheme, colors } from "../../../../styles";
 import { pxToRem } from "../../../../utils";
 import { useStyles } from "./styles";
 
@@ -12,7 +12,7 @@ type TSocialIcons = {
 
 export const SocialIcons = ({ containerRef }: TSocialIcons) => {
 	const classes = useStyles();
-	const theme = useTheme();
+	const theme = CustomTheme();
 
 	const isBellowMd = useMediaQuery(theme.breakpoints.down("md"));
 	const isBellowLg = useMediaQuery(theme.breakpoints.down("lg"));

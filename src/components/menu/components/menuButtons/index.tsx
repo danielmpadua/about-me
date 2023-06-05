@@ -1,7 +1,7 @@
 import { GiGuitarHead } from "react-icons/gi";
 import { RxPerson, RxCode } from "react-icons/rx";
 
-import { Box, Container, Fade, Grid, Slide } from "@mui/material";
+import { Container, Fade, Grid } from "@mui/material";
 
 import { pxToRem } from "../../../../utils";
 import { CustomIconButton } from "../customIconButton";
@@ -21,48 +21,42 @@ export const MenuButtons = ({ onClick, isSelected, isSticky }: TMenuButtons) => 
 			<Fade in timeout={1500}>
 				<Grid container spacing={2}>
 					<Grid item xs={4} className={classes.itemContainer}>
-						<Slide direction="down" in timeout={1500}>
-							<Box m={0} p={0} width="fit-content">
-								<CustomIconButton
-									isSticky={isSticky}
-									isSelected={isSelected}
-									onClick={onClick}
-									text="Sobre mim"
-									type=""
-									icon={<RxPerson size={pxToRem(40)} />}
-								/>
-							</Box>
-						</Slide>
+						<CustomIconButton
+							slideDirection="down"
+							slideTimeout={1500}
+							isSticky={isSticky}
+							isSelected={isSelected}
+							onClick={onClick}
+							text="Sobre mim"
+							type=""
+							icon={<RxPerson size={pxToRem(40)} />}
+						/>
 					</Grid>
 
 					<Grid item xs={4} className={classes.itemContainer}>
-						<Slide direction="up" in timeout={1000}>
-							<Box m={0} p={0} width="fit-content">
-								<CustomIconButton
-									isSticky={isSticky}
-									isSelected={isSelected}
-									onClick={onClick}
-									text="Programação"
-									type="CODE"
-									icon={<RxCode size={pxToRem(40)} />}
-								/>
-							</Box>
-						</Slide>
+						<CustomIconButton
+							slideDirection="up"
+							slideTimeout={1000}
+							isSticky={isSticky}
+							isSelected={isSelected}
+							onClick={onClick}
+							text="Programação"
+							type="CODE"
+							icon={<RxCode size={pxToRem(40)} />}
+						/>
 					</Grid>
 
 					<Grid item xs={4} className={classes.itemContainer}>
-						<Slide direction="down" in timeout={1250}>
-							<Box m={0} p={0} width="fit-content">
-								<CustomIconButton
-									isSticky={isSticky}
-									isSelected={isSelected}
-									onClick={onClick}
-									text="Música"
-									type="MUSIC"
-									icon={<GiGuitarHead size={pxToRem(40)} />}
-								/>
-							</Box>
-						</Slide>
+						<CustomIconButton
+							slideTimeout={1250}
+							slideDirection="down"
+							isSticky={isSticky}
+							isSelected={isSelected}
+							onClick={onClick}
+							text="Música"
+							type="MUSIC"
+							icon={<GiGuitarHead size={pxToRem(40)} />}
+						/>
 					</Grid>
 				</Grid>
 			</Fade>

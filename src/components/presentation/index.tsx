@@ -39,7 +39,7 @@ export const Presentation = ({ selectedOption, changeOption }: TPresentation) =>
 						flexDirection: "column",
 						alignItems: "center",
 						justifyContent: "center",
-						height: "100vh",
+						height: "200vh",
 					}}
 				>
 					<LuConstruction

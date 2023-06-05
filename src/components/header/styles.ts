@@ -5,19 +5,22 @@ import { pxToRem } from "../../utils";
 export const useStyles = makeStyles((theme) => ({
 	root: {
 		display: "flex",
+		width: "100%",
 		overflow: "hidden",
 		alignItems: "center",
 		flexDirection: "column",
 		justifyContent: "center",
-		paddingBottom: pxToRem(32),
-		paddingTop: `calc(50vh - ${pxToRem(450)})`,
+		paddingBottom: "5vh",
+		paddingTop: `calc(50vh - ${pxToRem(436)})`,
 
 		[theme.breakpoints.down("lg")]: {
-			paddingTop: `calc(50vh - ${pxToRem(350)})`,
+			paddingTop: `calc(50vh - ${pxToRem(336)})`,
+			paddingBottom: "10vh",
 		},
 
 		[theme.breakpoints.down("md")]: {
-			paddingTop: `calc(50vh - ${pxToRem(300)})`,
+			paddingTop: `calc(50vh - ${pxToRem(286)})`,
+			paddingBottom: "16vh",
 		},
 	},
 

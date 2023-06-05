@@ -19,4 +19,15 @@ export const useStyles = makeStyles({
 		top: 0,
 		width: "100%",
 	},
+
+	scroll: {
+		zIndex: 15,
+		width: "3px",
+		borderRadius: "4px",
+		opacity: 0.5,
+		transition: "backgroundColor 1s ease-out, background 1s ease-out, color 1s ease-out",
+		OTransition: "backgroundColor 1s ease-out, background 1s ease-out, color 1s ease-out",
+		MozTransition: "backgroundColor 1s ease-out, background 1s ease-out, color 1s ease-out",
+		WebkitTransition: "backgroundColor 1s ease-out, background 1s ease-out, color 1s ease-out",
+	},
 });

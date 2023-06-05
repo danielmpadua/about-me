@@ -18,7 +18,20 @@ export const Presentation = ({ selectedOption, changeOption }: TPresentation) =>
 	const classes = useStyles();
 
 	return (
-		<Scrollbars hidden={false} autoHeight={true} autoHeightMax="100vh">
+		<Scrollbars
+			autoHeight={true}
+			autoHeightMax="100vh"
+			renderThumbVertical={({ style, ...props }) => (
+				<div
+					{...props}
+					className={classes.scroll}
+					style={{
+						...style,
+						backgroundColor: colors(selectedOption).primary,
+					}}
+				/>
+			)}
+		>
 			<Box className={classes.root}>
 				<Header selectedOption={selectedOption} />
 
